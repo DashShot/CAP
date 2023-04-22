@@ -13,12 +13,13 @@
 */
 #include<stdio.h>
 #include <stdlib.h>
+#include<time.h>
 
 int main (int argc, char *argv[]){
 
     if(argc == 2){
 
-        int N = argv[1];
+        int N = atoi(argv[1]);
 
         int vA[N];
         int vB[N];
@@ -29,15 +30,17 @@ int main (int argc, char *argv[]){
             vA[i] = rand()%1000;
             vB[i] = rand()%1000;
         }
-        printf("Valores iniciales vA = %i \n",vA);
-        printf("Valores iniciales vB = %i \n",vB);
-
+        printf("Valores iniciales vA = ");
+        for(int i1 = 0 ; i1<N ; i1++) printf ("%d ", vA[i1]);
+        printf("\nValores iniciales vB = ");
+        for(int i2 = 0 ; i2<N ; i2++) printf ("%d ", vB[i2]);
+        
         for(int j=0 ; j<N ; j++){ //Suma almacenada en vA
             vA[j] +=vB[j];
         }
 
-        printf("Valor final de vA = %i \n",vA);
-
+        printf("\nValor final de vA =  ");
+        for(int i3 = 0 ; i3<N ; i3++) printf ("%d ", vA[i3]);
 
 
     }else{ //TRATAMIENTO DE PARAMETROS
