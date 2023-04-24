@@ -43,6 +43,7 @@ int main(int argc, char **argv){
     //Finalizamos el tiempo que ha tardado en realizar la suma
     time_t t1 = clock();
     double elipse = (double)(t1-t0)/CLOCKS_PER_SEC;
+    
     printf("Tiempo = %f",elipse);
     /*for(int i = 0; i <n; i++){
         printf("Array Suma posicion %d, valor %d\n",i,array1[i]);

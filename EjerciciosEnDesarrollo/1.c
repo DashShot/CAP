@@ -12,8 +12,9 @@
 
 */
 #include<stdio.h>
-#include <stdlib.h>
+#include<stdlib.h>
 #include<time.h>
+#include<omp.h>
 
 int main (int argc, char *argv[]){
 
@@ -23,6 +24,8 @@ int main (int argc, char *argv[]){
 
         int vA[N];
         int vB[N];
+
+        double t0,t1;
 
         srand(time(NULL)); //semilla de aleatoriedad
 
@@ -35,14 +38,24 @@ int main (int argc, char *argv[]){
         printf("\nValores iniciales vB = ");
         for(int i2 = 0 ; i2<N ; i2++) printf ("%d ", vB[i2]);
         
+         t0=omp_get_wtime();
+
+        #pragma omp parallel for num_threads(4)
         for(int j=0 ; j<N ; j++){ //Suma almacenada en vA
             vA[j] +=vB[j];
         }
+
+        t1=omp_get_wtime();
 
         printf("\nValor final de vA =  ");
         for(int i3 = 0 ; i3<N ; i3++) printf ("%d ", vA[i3]);
 
 
+        printf("\n%f,- %f\n",t0,t1);
+        double elapsed = t1-t0;
+
+        printf("\nEl tiempo transcurrdo es = %f",elapsed);
+        
     }else{ //TRATAMIENTO DE PARAMETROS
         printf("EL NUMERO DE ARGOMENTOS NO ES CORRECTO \n");
         return -1;
