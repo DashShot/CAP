@@ -5,7 +5,7 @@
 			"type": "cppbuild",
 			"label": "C/C++: CAP ejer 1 (fopenmp)",
 			"command": "gcc",
-			"args": [		
+			"args": [
 				"${file}",
 				"-fopenmp",
 				"-o",
@@ -18,6 +18,34 @@
 				"$gcc"
 			],
 			"group": "build",
+			"detail": "compiler: C:\\MinGW\\mingw64\\bin\\gcc.exe"
+		},
+		{
+			"type": "cppbuild",
+			"label": "C/C++: gcc.exe (MPI)",
+			"command": "C:\\MinGW\\mingw64\\bin\\gcc.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-I",
+				"${MSMPI_INC}",
+				"-L",
+				"${MSMPI_LIB64}",
+				"-lmsmpi",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
 			"detail": "compiler: C:\\MinGW\\mingw64\\bin\\gcc.exe"
 		}
 	]
