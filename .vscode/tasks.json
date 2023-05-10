@@ -42,11 +42,57 @@
 			"problemMatcher": [
 				"$gcc"
 			],
+			"group": "build",
+			"detail": "compiler: C:\\MinGW\\mingw64\\bin\\gcc.exe"
+		},
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe + openmp",
+			"command": "C:\\MinGW\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-fopenmp",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "compiler: C:\\MinGW\\mingw64\\bin\\gcc.exe"
+			"detail": "compiler: C:\\MinGW\\mingw64\\bin\\g++.exe"
+		}
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe (MPI)",
+			"command": "C:\\MinGW\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-I",
+				"${MSMPI_INC}",
+				"-L",
+				"${MSMPI_LIB64}",
+				"-lmsmpi",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: C:\\MinGW\\mingw64\\bin\\g++.exe"
 		}
 	]
 }
